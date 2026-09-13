@@ -73,6 +73,12 @@ li {
     overflow: hidden;
 }
 
+#preview-caption {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    font-weight: 600;
+}
+
 /* Descendant selectors */
 
 .logo span {
@@ -209,6 +215,74 @@ li {
     background-color: #17171c;
     border-radius: 8px;
     border: 1px solid #2e2e38;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #141417;
+    border: 1px solid #2e2e38;
+    border-radius: 6px;
+    color: #f4f4f6;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #facc15;
+    box-shadow: 0 0 8px rgba(250, 204, 21, 0.35);
+}
+
+.form-group input[type="color"] {
+    width: 60px;
+    height: 40px;
+    padding: 2px;
+    background-color: #141417;
+    border: 1px solid #2e2e38;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.ticket-split {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.ticket-info {
+    flex: 1 1 340px;
+}
+
+.pass-thumbnail {
+    width: 220px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #3a3a48;
+    display: block;
+    margin-bottom: 0.5rem;
 }
 
 /* Global footer */
