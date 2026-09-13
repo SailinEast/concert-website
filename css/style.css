@@ -66,6 +66,13 @@ li {
     z-index: 999;
 }
 
+#schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: transparent;
+    overflow: hidden;
+}
+
 /* Descendant selectors */
 
 .logo span {
@@ -97,6 +104,31 @@ li {
     color: #141417;
 }
 
+#schedule-table th,
+#schedule-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid #282832;
+    font-size: 0.95rem;
+}
+
+#schedule-table th {
+    background-color: #22222b;
+    color: #facc15;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+    font-size: 0.95rem;
+}
+
+#schedule-table td {
+    color: #d1d5db;
+}
+
+#schedule-table tbody tr:hover {
+    background-color: #272733;
+}
+
 /* Class selectors */
 
 .logo {
@@ -104,18 +136,6 @@ li {
     font-weight: 900;
     color: #ffffff;
     letter-spacing: 1.5px;
-}
-
-@keyframes float {
-    0%   { transform: translate(0px, 0px) rotate(0deg); }
-    12.5% { transform: translate(35px, 25px) rotate(2deg); }
-    25%  { transform: translate(50px, 0px) rotate(5deg); }
-    37.5% { transform: translate(35px, -25px) rotate(2deg); }
-    50%  { transform: translate(0px, 0px) rotate(0deg); }
-    62.5% { transform: translate(-35px, 25px) rotate(-2deg); }
-    75%  { transform: translate(-50px, 0px) rotate(-5deg); }
-    87.5% { transform: translate(-35px, -25px) rotate(-2deg); }
-    100% { transform: translate(0px, 0px) rotate(0deg); }
 }
 
 .logo:hover {
@@ -182,6 +202,15 @@ li {
     margin-bottom: 2rem;
 }
 
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    background-color: #17171c;
+    border-radius: 8px;
+    border: 1px solid #2e2e38;
+}
+
 /* Global footer */
 #main-footer {
     background-color: #0f0f12;
@@ -198,4 +227,18 @@ li {
 
 #main-footer strong {
     color: #a18711;
+}
+
+
+/* Animation  */
+@keyframes float {
+    0%   { transform: translate(0px, 0px) rotate(0deg); }
+    12.5% { transform: translate(35px, 25px) rotate(2deg); }
+    25%  { transform: translate(50px, 0px) rotate(5deg); }
+    37.5% { transform: translate(35px, -25px) rotate(2deg); }
+    50%  { transform: translate(0px, 0px) rotate(0deg); }
+    62.5% { transform: translate(-35px, 25px) rotate(-2deg); }
+    75%  { transform: translate(-50px, 0px) rotate(-5deg); }
+    87.5% { transform: translate(-35px, -25px) rotate(-2deg); }
+    100% { transform: translate(0px, 0px) rotate(0deg); }
 }
