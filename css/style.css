@@ -285,6 +285,54 @@ li {
     margin-bottom: 0.5rem;
 }
 
+.team-grid {
+    display: flex;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.team-member {
+    flex: 1 1 280px;
+    background-color: #17171c;
+    border: 1px solid #2e2e38;
+    border-radius: 8px;
+    padding: 1.75rem;
+    text-align: center;
+}
+
+.profile-image {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #facc15;
+    display: block;
+    margin: 0 auto 1.25rem auto;
+}
+
+.studio-section {
+    padding: 2.5rem 1rem 1.5rem 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #2e2e38;
+}
+
+.studio-section h1 {
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin: 0.5rem 0;
+}
+
+.studio-lead {
+    font-size: 1.1rem;
+    color: #cfd3dc;
+    max-width: 800px;
+    line-height: 1.7;
+}
+
+.studio-lead strong {
+    color: #facc15;
+}
+
 /* Global footer */
 #main-footer {
     background-color: #0f0f12;
