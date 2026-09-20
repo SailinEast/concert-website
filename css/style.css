@@ -507,6 +507,40 @@ body.grid-layout #main-footer {
     transform: scale(1.08);
 }
 
+/* Skills Grid Matrix on about.html (CSS Grid) */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.skill-card {
+    background-color: #17171c;
+    border: 1px solid #2e2e38;
+    border-radius: 6px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+}
+
+.skill-card h4 {
+    color: #facc15;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.skill-card p {
+    color: #9ca3af;
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
+
+@media (max-width: 680px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 
 /* Animation  */
 @keyframes float {

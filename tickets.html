@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <!-- Built by Ali | x2A -->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CrunchRock - Tickets</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="grid-layout">
 
 <header id="main-header">
     <div class="logo"><span>⚡</span> CrunchRock <span>⚡</span></div>
@@ -22,50 +21,76 @@
     </nav>
 </header>
 
+<aside class="sidebar">
+    <div class="info-block">
+        <h3>Pass Policies</h3>
+        <ul>
+            <li>Non-refundable after July 1st.</li>
+            <li>Wristbands issued at gate.</li>
+            <li>Age 16+ or with guardian.</li>
+        </ul>
+    </div>
+
+    <div class="info-block">
+        <h3>Ticket FAQ</h3>
+        <p><strong>Student Pass:</strong> Valid university student ID must be presented upon entry.</p>
+        <p><strong>VIP Access:</strong> Includes fast-track entry and golden circle stage access.</p>
+    </div>
+</aside>
+
 <main class="container">
 
     <section class="hero-section">
         <h1>GET YOUR TICKETS</h1>
         <p>
-            Choose your ticket and join CrunchRock 2026 for three days
-            of live rock music, powerful performances and unforgettable moments.
+            Choose your pass tier and join CrunchRock 2026 for three days
+            of blistering riffs, mosh pits, and amplified energy.
         </p>
     </section>
 
-    <section class="info-block ticket-split">
-        <div class="ticket-info">
-            <h2>Ticket Types</h2>
+    <h2>Available Pass Tiers</h2>
+    <section class="triple-card-section">
 
-            <ul class="ticket-types">
-                <li>Regular Pass - access to the main festival areas.</li>
-                <li>VIP Pass - premium viewing area and extra benefits.</li>
-                <li>Student Pass - discounted ticket for students.</li>
-            </ul>
-        </div>
+        <article class="band-card">
+            <img src="img/wristband.jpg" alt="Regular Pass Wristband" class="card-img">
+            <h3>Regular Pass</h3>
+            <p>Full access to the main arena grounds, distortion tent, and food trucks for all 3 days.</p>
+            <button class="card-btn">15,000 KZT</button>
+        </article>
 
-        <div class="ticket-preview">
-            <img src="img/wristband.jpg" alt="CrunchRock official fabric festival wristband" class="pass-thumbnail">
-            <span id="preview-caption">Official RFID Festival Wristband</span>
-        </div>
+        <article class="band-card">
+            <img src="img/wristband.jpg" alt="VIP Pass Wristband" class="card-img">
+            <h3>VIP Pit Pass</h3>
+            <p>Front-of-stage golden circle viewing, VIP lounge bar access, and fast-track arena entry.</p>
+            <button class="card-btn">35,000 KZT</button>
+        </article>
+
+        <article class="band-card">
+            <img src="img/wristband.jpg" alt="Student Pass Wristband" class="card-img">
+            <h3>Student Pass</h3>
+            <p>Discounted general admission pass for enrolled high school and university students.</p>
+            <button class="card-btn">10,000 KZT</button>
+        </article>
+
     </section>
 
     <section class="info-block">
-        <h2>Ticket Registration</h2>
+        <h2>Pass Reservation</h2>
 
         <form id="contact-form">
 
             <div class="form-group">
-                <label for="name">Full Name:</label><br>
-                <input type="text" id="name" name="name" placeholder="e.g., John Smith" required>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="e.g., Ali Tulindinov" required>
             </div>
 
             <div class="form-group">
-                <label for="email">Email Address:</label><br>
+                <label for="email">Email Address:</label>
                 <input type="email" id="email" name="email" placeholder="example@domain.com" required>
             </div>
 
             <div class="form-group">
-                <label for="ticket">Choose ticket type:</label><br>
+                <label for="ticket">Choose Pass Tier:</label>
                 <select id="ticket" name="ticket" required>
                     <option value="">-- Select Your Pass --</option>
                     <option value="regular">Regular Pass (15,000 KZT)</option>
@@ -75,17 +100,17 @@
             </div>
 
             <div class="form-group">
-                <label for="color">Choose Wristband Color:</label><br>
-                <input type="color" id="color" name="color">
+                <label for="color">Choose Wristband LED Color:</label>
+                <input type="color" id="color" name="color" value="#facc15">
             </div>
 
             <div class="form-group">
-                <label for="message">Special Requests:</label><br>
+                <label for="message">Special Requests:</label>
                 <textarea id="message" name="message" rows="4"
                           placeholder="Let us know if you require accessible seating or camping space..."></textarea>
             </div>
 
-            <button type="submit" class="cta-button">Submit</button>
+            <button type="submit" class="cta-button">Confirm Registration</button>
 
         </form>
     </section>
@@ -95,8 +120,8 @@
 <footer id="main-footer">
     <p>
         Team Members:
-        <strong>Anas Boranbayev</strong> &
-        <strong>Ali Tulindinov</strong>
+        <strong>Ali Tulindinov</strong> &amp;
+        <strong>Anas Boranbayev</strong>
     </p>
 
     <p>
