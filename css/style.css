@@ -144,7 +144,11 @@ li {
     font-weight: 900;
     color: #ffffff;
     letter-spacing: 1.5px;
-    cursor: default;
+    cursor: pointer;
+}
+
+.logo-link {
+    text-decoration: none;
 }
 
 .logo-wrapper:hover .logo {
