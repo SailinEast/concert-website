@@ -364,13 +364,14 @@ li {
 .triple-card-section {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 1.5rem;
     margin: 2rem 0;
     align-items: stretch;
 }
 
 .band-card {
-    flex: 1;
+    flex: 1 1 calc(33% - 1.5rem);
     background-color: #1f1f24;
     border: 1px solid #2e2e38;
     border-radius: 8px;
@@ -540,12 +541,6 @@ body.grid-layout #main-footer {
     margin-bottom: 0;
 }
 
-@media (max-width: 680px) {
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 
 /* Animation  */
 @keyframes float {
@@ -560,7 +555,39 @@ body.grid-layout #main-footer {
     100% { transform: translate(0px, 0px) rotate(0deg); }
 }
 
+/* Tablet dimensions */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.35rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+
+    .band-card {
+        flex: 1 1 calc(50% - 1.5rem);
+    }
+}
+
+/* Mobile dimensions */
 @media (max-width: 680px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 0.88rem;
+    }
+    
     #main-header {
         flex-direction: column;
         padding: 0.75rem 0.5rem;
@@ -608,5 +635,13 @@ body.grid-layout #main-footer {
 
     .gallery-grid {
         grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .band-card {
+        flex: 1 1 100%;
     }
 }
