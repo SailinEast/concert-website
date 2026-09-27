@@ -5,25 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CrunchRock - Tickets</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="grid-layout">
 
-<header id="main-header">
-    <a class="logo-link" href="index.html">
-        <div class="logo-wrapper">
-            <div class="logo">⚡ CrunchRock ⚡</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-2 border-bottom border-secondary px-3">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold text-white fs-4 fw-800" href="index.html">⚡ CrunchRock ⚡</a>
+        <!-- yummy hamburger 🍔 -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse justify-content-end" id="nav">
+            <ul class="navbar-nav gap-2">
+                <li class="nav-item"><a class="nav-link text-secondary" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary" href="schedule.html">Schedule</a></li>
+                <li class="nav-item"><a class="nav-link text-warning active border-2 border-bottom rounded border-warning" href="tickets.html">Tickets</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary" href="about.html">Team</a></li>
+            </ul>
         </div>
-    </a>
-
-    <nav class="nav-menu">
-        <a href="index.html">Home</a>
-        <a href="schedule.html">Schedule</a>
-        <a href="tickets.html" class="active">Tickets</a>
-        <a href="about.html">Team</a>
-    </nav>
-</header>
+    </div>
+</nav>
 
 <aside class="sidebar">
     <div class="info-block">
@@ -53,49 +55,56 @@
     </section>
 
     <h2>Available Pass Tiers</h2>
-    <section class="triple-card-section">
-
-        <article class="band-card">
-            <img src="img/wristband.jpg" alt="Regular Pass Wristband" class="card-img">
-            <h3>Regular Pass</h3>
-            <p>Full access to the main arena grounds, distortion tent, and food trucks for all 3 days.</p>
-            <button class="card-btn">15,000 KZT</button>
-        </article>
-
-        <article class="band-card">
-            <img src="img/wristband.jpg" alt="VIP Pass Wristband" class="card-img">
-            <h3>VIP Pit Pass</h3>
-            <p>Front-of-stage golden circle viewing, VIP lounge bar access, and fast-track arena entry.</p>
-            <button class="card-btn">35,000 KZT</button>
-        </article>
-
-        <article class="band-card">
-            <img src="img/wristband.jpg" alt="Student Pass Wristband" class="card-img">
-            <h3>Student Pass</h3>
-            <p>Discounted general admission pass for enrolled high school and university students.</p>
-            <button class="card-btn">10,000 KZT</button>
-        </article>
-
-    </section>
+    <div class="row g-3 mb-4">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card bg-dark text-white border-secondary h-100 p-3 text-center">
+                <img src="img/wristband.jpg" alt="Regular Pass Wristband" class="card-img-top rounded mb-2">
+                <div class="card-body">
+                    <h3 class="card-title text-warning">Regular Pass</h3>
+                    <p class="card-text text-secondary small">Full access to grounds and food trucks for 3 days.</p>
+                    <button class="btn btn-warning w-100 fw-bold">15,000 KZT</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card bg-dark text-white border-secondary h-100 p-3 text-center">
+                <img src="img/wristband.jpg" alt="VIP Pass Wristband" class="card-img-top rounded mb-2">
+                <div class="card-body">
+                    <h3 class="card-title text-warning">VIP Pit Pass</h3>
+                    <p class="card-text text-secondary small">Front-of-stage golden circle and VIP lounge access.</p>
+                    <button class="btn btn-warning w-100 fw-bold">35,000 KZT</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card bg-dark text-white border-secondary h-100 p-3 text-center">
+                <img src="img/wristband.jpg" alt="Student Pass Wristband" class="card-img-top rounded mb-2">
+                <div class="card-body">
+                    <h3 class="card-title text-warning">Student Pass</h3>
+                    <p class="card-text text-secondary small">Discounted pass for enrolled high school and uni students.</p>
+                    <button class="btn btn-warning w-100 fw-bold">10,000 KZT</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section class="info-block">
         <h2>Pass Reservation</h2>
 
         <form id="contact-form">
-
-            <div class="form-group">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" placeholder="e.g., Ali Tulindinov" required>
+            <div class="mb-3">
+                <label for="name" class="form-label text-warning fw-bold">Full Name:</label>
+                <input type="text" class="form-control bg-dark text-white border-secondary" id="name" placeholder="e.g., Ali Tulindinov" required>
             </div>
 
-            <div class="form-group">
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+            <div class="mb-3">
+                <label for="email" class="form-label text-warning fw-bold">Email Address:</label>
+                <input type="email" class="form-control bg-dark text-white border-secondary" id="email" placeholder="example@domain.com" required>
             </div>
 
-            <div class="form-group">
-                <label for="ticket">Choose Pass Tier:</label>
-                <select id="ticket" name="ticket" required>
+            <div class="mb-3">
+                <label for="ticket" class="form-label text-warning fw-bold">Choose Pass Tier:</label>
+                <select class="form-select bg-dark text-white border-secondary" id="ticket" required>
                     <option value="">-- Select Your Pass --</option>
                     <option value="regular">Regular Pass (15,000 KZT)</option>
                     <option value="vip">VIP Pass (35,000 KZT)</option>
@@ -103,19 +112,17 @@
                 </select>
             </div>
 
-            <div class="form-group">
-                <label for="color">Choose Wristband LED Color:</label>
-                <input type="color" id="color" name="color" value="#facc15">
+            <div class="mb-3">
+                <label for="color" class="form-label text-warning fw-bold">Choose Wristband LED Color:</label>
+                <input type="color" class="form-control form-control-color bg-dark border-secondary" id="color" value="#facc15">
             </div>
 
-            <div class="form-group">
-                <label for="message">Special Requests:</label>
-                <textarea id="message" name="message" rows="4"
-                          placeholder="Let us know if you require accessible seating or camping space..."></textarea>
+            <div class="mb-3">
+                <label for="message" class="form-label text-warning fw-bold">Special Requests:</label>
+                <textarea class="form-control bg-dark text-white border-secondary" id="message" rows="4"></textarea>
             </div>
 
-            <button type="submit" class="cta-button">Confirm Registration</button>
-
+            <button type="submit" class="btn btn-warning fw-bold w-100">Confirm Registration</button>
         </form>
     </section>
 
@@ -134,5 +141,6 @@
     </p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

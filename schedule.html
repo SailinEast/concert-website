@@ -6,25 +6,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CrunchRock - Schedule</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <!-- grid system -->
 <body class="grid-layout">
 
-<header id="main-header">
-    <a class="logo-link" href="index.html">
-        <div class="logo-wrapper">
-            <div class="logo">⚡ CrunchRock ⚡</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-2 border-bottom border-secondary px-3">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold text-white fs-4 fw-800" href="index.html">⚡ CrunchRock ⚡</a>
+        <!-- yummy hamburger 🍔 -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse justify-content-end" id="nav">
+            <ul class="navbar-nav gap-2">
+                <li class="nav-item"><a class="nav-link text-secondary" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-warning active border-2 border-bottom rounded border-warning" href="schedule.html">Schedule</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary" href="tickets.html">Tickets</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary" href="about.html">Team</a></li>
+            </ul>
         </div>
-    </a>
-    <nav class="nav-menu">
-        <a href="index.html">Home</a>
-        <a href="schedule.html" class="active">Schedule</a>
-        <a href="tickets.html">Tickets</a>
-        <a href="about.html">Team</a>
-    </nav>
-</header>
+    </div>
+</nav>
 
 <aside class="sidebar">
     <div class="info-block">
@@ -44,6 +47,41 @@
 <main class="container">
     <h1>Artist Lineup & Timetable</h1>
     <p>Explore the official performance schedule across all three festival arenas.</p>
+
+    <div class="row mt-lg-4 mb-4">
+        <div class="col-12 col-lg-6 px-sm-2 mb-3">
+            <div class="p-3 bg-dark border border-secondary rounded">
+                <h3 class="text-warning">📢 Arena Guidelines</h3>
+                <p class="text-secondary small mb-0">Gates open at 16:00. Earplugs available at all sound booths.</p>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 px-sm-2 mb-3">
+            <div class="p-3 bg-dark border border-secondary rounded">
+                <h3 class="text-warning">🌤️ Weather Forecast</h3>
+                <p class="text-secondary small mb-0">Clear skies, 22°C. Outdoor stages operating without delays.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center mb-4">
+        <div class="col-12 col-md-12 col-lg-4 mb-3">
+            <div class="p-3 bg-dark border border-secondary rounded">
+                <h4 class="text-warning fw-bold">Crunch Stage</h4>
+                <p class="text-secondary small mb-0">Main Arena</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-4 mb-3">
+            <div class="p-3 bg-dark border border-secondary rounded">
+                <h4 class="text-warning fw-bold">Distortion Tent</h4>
+                <p class="text-secondary small mb-0">Alternative Rock</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-4 mb-3">
+            <div class="p-3 bg-dark border border-secondary rounded">
+                <h4 class="text-warning fw-bold">The Pit</h4>
+                <p class="text-secondary small mb-0">Heavy Metal</p>
+            </div>
+        </div>
+    </div>
 
     <!-- image requirement -->
     <section class="media-section">
@@ -114,5 +152,6 @@
     <p>&copy; 2026 <strong>x2A</strong>. This website is open-source software licensed under the GNU GPLv3.</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
