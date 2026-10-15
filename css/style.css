@@ -116,6 +116,22 @@ li {
     background-color: #facc15;
     color: #141417;
 }
+
+/* datetime stuff */
+.datetime-bar {
+    text-align: center;
+    padding: 0.45rem 1rem;
+    background-color: #1a1a20;
+    border-bottom: 1px solid #2e2e38;
+    font-size: 0.85rem;
+    color: #9ca3af;
+    font-weight: 600;
+}
+
+.datetime-bar strong {
+    color: #facc15;
+}
+
 .nav-menu a:hover {
     color: #141417;
     background-color: #facc15;
