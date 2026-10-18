@@ -22,6 +22,7 @@
         <a href="schedule.html">Schedule</a>
         <a href="tickets.html" class="active">Tickets</a>
         <a href="about.html">Team</a>
+        <button id="theme-toggle-btn" class="theme-btn">Flashbang</button>
     </nav>
 </header>
 
@@ -85,13 +86,29 @@
 
             <div class="form-group">
                 <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" placeholder="e.g., Ali Tulindinov" required>
+                <input type="text" id="name" name="name" placeholder="e.g., Ali Tulindinov">
+                <span class="error-msg" id="name-error"></span>
             </div>
 
             <div class="form-group">
                 <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+                <input type="text" id="email" name="email" placeholder="example@domain.com">
+                <span class="error-msg" id="email-error"></span>
             </div>
+
+            <div class="form-group">
+                <label for="password">Create Password (min. 8 characters):</label>
+                <input type="password" id="password" name="password" placeholder="••••••••">
+                <span class="error-msg" id="password-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirmPassword" placeholder="••••••••">
+                <span class="error-msg" id="confirm-error"></span>
+            </div>
+
+            <div id="form-success" class="success-msg"></div>
 
             <div class="form-group">
                 <label for="ticket">Choose Pass Tier:</label>
@@ -114,7 +131,7 @@
                           placeholder="Let us know if you require accessible seating or camping space..."></textarea>
             </div>
 
-            <button type="submit" class="cta-button">Confirm Registration</button>
+            <button type="submit" class="cta-button" id="submit-btn">Confirm Registration</button>
 
         </form>
     </section>
@@ -134,5 +151,7 @@
     </p>
 </footer>
 
+<script src="js/tickets.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
