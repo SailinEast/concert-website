@@ -201,17 +201,17 @@ li {
 
 /* Popup */
 .modal-overlay {
-    display: none;             /* Hidden by default */
+    display: none;
     position: fixed;
-    inset: 0;                  /* Covers the whole screen */
-    background-color: rgba(0, 0, 0, 0.75); /* Dark dim overlay */
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.75);
     z-index: 9999;
     justify-content: center;
     align-items: center;
 }
 
 .modal-overlay.open {
-    display: flex;             /* Becomes visible when JS adds the 'open' class */
+    display: flex;
 }
 
 .modal-box {
