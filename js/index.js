@@ -38,3 +38,36 @@ accordionHeaders.forEach(header => {
         }
     });
 });
+
+// thumbnail viewer
+
+const thumbnails = document.querySelectorAll('.gallery-item');
+const mainImg = document.getElementById("main-display-img");
+const mainCaption = document.getElementById("main-display-caption");
+if (mainImg && thumbnails.length > 0) {
+    thumbnails[0].classList.add("active-thumb");
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener("click", function () {
+            const thumbImg = this.querySelector("img");
+            const thumbCaption = this.querySelector(".gallery-caption p");
+            
+            thumbnails.forEach(t => t.classList.remove("active-thumb"));
+            this.classList.add("active-thumb");
+            
+            mainImg.style.opacity = "0.3";
+            mainImg.style.transform = "scale(0.98)";
+            
+            setTimeout(() => {
+                mainImg.src = thumbImg.src;
+                mainImg.alt = thumbImg.alt;
+                
+                if (thumbCaption && mainCaption) {
+                    mainCaption.textContent = thumbCaption.textContent;
+                }
+                
+                mainImg.style.opacity = "1";
+                mainImg.style.transform = "scale(1)";
+            }, 150);
+        });
+    });
+}
