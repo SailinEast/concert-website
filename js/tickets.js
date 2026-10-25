@@ -41,4 +41,14 @@ if (regForm) {
             regForm.reset();
         }
     })
+
+    const resetBtn = document.getElementById("reset-btn");
+    if (resetBtn) {
+        resetBtn.addEventListener("click", function () {
+            regForm.querySelectorAll('input, textarea').forEach(input => input.value = '');
+            document.getElementById("ticket").value = "";
+            document.getElementById("color").value = "#facc15";
+            document.querySelectorAll('.error-msg').forEach(el => el.textContent = "");
+        });
+    }
 }
