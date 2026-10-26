@@ -312,12 +312,22 @@ li {
 }
 
 .hero-section {
+    position: relative;
     background: linear-gradient(135deg, #22222b 0%, #17171d 100%);
     border: 1px solid #363645;
     border-radius: 10px;
     padding: 3rem 2rem;
     text-align: center;
     margin-bottom: 2rem;
+}
+
+#skull-gif {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    width: 50px;
+    position: absolute;
+    right: 3rem;
+    cursor: pointer;
 }
 
 .cta-button {

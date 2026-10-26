@@ -109,3 +109,46 @@ function displayGreeting() {
 }
 
 displayGreeting();
+
+// sound effects and K00L skull 😎
+let skullGif = document.getElementById("skull-gif");
+const skullAudio = new Audio("../sounds/skull-guitar.mp3");
+
+if (skullGif) {
+    const gifUrl = skullGif.getAttribute("src");
+    let frozenFrameUrl = "";
+    let isPlaying = false;
+
+    const AUDIO_DELAY = 2000;
+    const GIF_DURATION = 4000;
+
+    const tempImg = new Image();
+    tempImg.src = gifUrl;
+    tempImg.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = tempImg.width;
+        canvas.height = tempImg.height;
+        canvas.getContext("2d").drawImage(tempImg, 0, 0);
+        frozenFrameUrl = canvas.toDataURL("image/png");
+        skullGif.src = frozenFrameUrl;
+    }
+
+    skullGif.addEventListener("click", () => {
+        if (isPlaying) return;
+        isPlaying = true;
+
+        skullGif.src = gifUrl + "?t=" + Date.now();
+
+        setTimeout(() => {
+            skullAudio.currentTime = 0;
+            skullAudio.play();
+        }, AUDIO_DELAY);
+
+        setTimeout(() => {
+            if (frozenFrameUrl) {
+                skullGif.src = frozenFrameUrl;
+            }
+            isPlaying = false;
+        }, GIF_DURATION);
+    })
+}
