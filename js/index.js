@@ -123,7 +123,6 @@ if (skullGif) {
     const GIF_DURATION = 4000;
 
     const tempImg = new Image();
-    tempImg.src = gifUrl;
     tempImg.onload = function () {
         const canvas = document.createElement("canvas");
         canvas.width = tempImg.width;
@@ -132,23 +131,28 @@ if (skullGif) {
         frozenFrameUrl = canvas.toDataURL("image/png");
         skullGif.src = frozenFrameUrl;
     }
+    tempImg.src = gifUrl;
 
     skullGif.addEventListener("click", () => {
         if (isPlaying) return;
         isPlaying = true;
 
+        skullGif.onload = () => {
+            skullGif.onload = null;
+
+            setTimeout(() => {
+                skullAudio.currentTime = 0;
+                skullAudio.play();
+            }, AUDIO_DELAY);
+
+            setTimeout(() => {
+                if (frozenFrameUrl) {
+                    skullGif.src = frozenFrameUrl;
+                }
+                isPlaying = false;
+            }, GIF_DURATION);
+        }
+
         skullGif.src = gifUrl + "?t=" + Date.now();
-
-        setTimeout(() => {
-            skullAudio.currentTime = 0;
-            skullAudio.play();
-        }, AUDIO_DELAY);
-
-        setTimeout(() => {
-            if (frozenFrameUrl) {
-                skullGif.src = frozenFrameUrl;
-            }
-            isPlaying = false;
-        }, GIF_DURATION);
     })
 }
