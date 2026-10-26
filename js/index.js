@@ -112,7 +112,7 @@ displayGreeting();
 
 // sound effects and K00L skull 😎
 let skullGif = document.getElementById("skull-gif");
-const skullAudio = new Audio("../sounds/skull-guitar.mp3");
+const skullAudio = new Audio("sounds/skull-guitar.mp3");
 
 if (skullGif) {
     const gifUrl = skullGif.getAttribute("src");
