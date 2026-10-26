@@ -74,7 +74,7 @@ if (mainImg && thumbnails.length > 0) {
 
 function displayGreeting() {
     const hour = new Date().getHours();
-    let timePeriod = "";
+    let timePeriod;
 
     if (hour >= 5 && hour < 12) {
         timePeriod = 'morning';
@@ -86,7 +86,7 @@ function displayGreeting() {
         timePeriod = 'night';
     }
 
-    let greetingMessage = "";
+    let greetingMessage;
     switch (timePeriod) {
         case 'morning':
             greetingMessage = 'Good Morning, Rockers! Arena gates open at 16:00.';
