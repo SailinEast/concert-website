@@ -71,3 +71,41 @@ if (mainImg && thumbnails.length > 0) {
         });
     });
 }
+
+function displayGreeting() {
+    const hour = new Date().getHours();
+    let timePeriod = "";
+
+    if (hour >= 5 && hour < 12) {
+        timePeriod = 'morning';
+    } else if (hour >= 12 && hour < 18) {
+        timePeriod = 'afternoon';
+    } else if (hour >= 18 && hour < 22) {
+        timePeriod = 'evening';
+    } else {
+        timePeriod = 'night';
+    }
+
+    let greetingMessage = "";
+    switch (timePeriod) {
+        case 'morning':
+            greetingMessage = 'Good Morning, Rockers! Arena gates open at 16:00.';
+            break;
+        case 'afternoon':
+            greetingMessage = 'Good Afternoon! Stage soundchecks are live.';
+            break;
+        case 'evening':
+            greetingMessage = 'Good Evening! Main Stage headliners are taking over!';
+            break;
+        default:
+            greetingMessage = 'Late Night Encore! Keep the energy loud.';
+            break;
+    }
+
+    const greetingEl = document.getElementById("time-greeting");
+    if (greetingEl) {
+        greetingEl.textContent = greetingMessage;
+    }
+}
+
+displayGreeting();
