@@ -81,6 +81,72 @@ li {
     font-weight: 600;
 }
 
+/* search box */
+.search-box-wrapper {
+    position: relative;
+    margin: 1rem 0;
+}
+
+#schedule-search {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background-color: #141417;
+    border: 1px solid #2e2e38;
+    border-radius: 6px;
+    color: #f4f4f6;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#schedule-search:focus {
+    outline: none;
+    border-color: #facc15;
+    box-shadow: 0 0 8px rgba(250, 204, 21, 0.35);
+}
+
+/* autocomplete */
+.autocomplete-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #1f1f24;
+    border: 1px solid #facc15;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.autocomplete-dropdown li {
+    padding: 0.65rem 1rem;
+    color: #d1d5db;
+    cursor: pointer;
+    margin: 0;
+    border-bottom: 1px solid #2e2e38;
+    font-size: 0.9rem;
+}
+
+.autocomplete-dropdown li:hover {
+    background-color: #facc15;
+    color: #141417;
+    font-weight: 700;
+}
+
+.search-highlight {
+    background-color: #facc15;
+    color: #141417;
+    font-weight: 800;
+    padding: 0 2px;
+    border-radius: 3px;
+}
+
 /* Descendant selectors */
 
 .logo span {

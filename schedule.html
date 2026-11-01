@@ -54,6 +54,13 @@
     <!-- table requirements (3+ columns, thead, tbody, th, tr, td) -->
     <section class="table-section">
         <h2>Official Concert Schedule</h2>
+
+        <!-- search and autocomplete -->
+        <div class="search-box-wrapper">
+            <input type="text" id="schedule-search" placeholder="🔍 Search bands, stages, or genres (e.g., Iron, Metal, Pit)..." autocomplete="off">
+            <ul id="autocomplete-list" class="autocomplete-dropdown"></ul>
+        </div>
+
         <div class="table-wrapper">
         <table id="schedule-table">
             <thead>
