@@ -34,8 +34,8 @@ if (navItems.length > 0) {
     });
 }
 
-// scroll progress bar
 $(document).ready(function () {
+    // scroll progress bar
     $("body").prepend('<div id="scroll-progress"></div>');
 
     $(window).on("scroll", function () {
@@ -44,4 +44,24 @@ $(document).ready(function () {
         const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
         $("#scroll-progress").css("width", scrollPercent + "%");
     });
+
+    // I'm so lazy
+    function lazyLoadImages() {
+        const windowBottom = $(window).scrollTop() + $(window).height();
+
+        $(".lazy-img").each(function () {
+            const $img = $(this);
+            const imgTop = $img.offset().top;
+
+            if (windowBottom > imgTop - 100) {
+                const realSrc = $img.attr("data-src");
+                if (realSrc && $img.attr("src") !== realSrc) {
+                    $img.attr("src", realSrc).addClass("loaded");
+                }
+            }
+        });
+    }
+
+    $(window).on("scroll", lazyLoadImages);
+    lazyLoadImages();
 });

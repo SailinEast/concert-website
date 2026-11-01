@@ -287,6 +287,16 @@ button:disabled {
     color: #141417;
 }
 
+/* lazy images (just like me frfr) */
+.lazy-img {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.lazy-img.loaded {
+    opacity: 1;
+}
+
 /* Descendant selectors */
 
 .logo span {
