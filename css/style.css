@@ -1,4 +1,12 @@
-/* 1st assignment */
+html {
+    scrollbar-width: none;
+    
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+}
 
 /* Universal selector */
 
