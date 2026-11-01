@@ -33,3 +33,15 @@ if (navItems.length > 0) {
         }
     });
 }
+
+// scroll progress bar
+$(document).ready(function () {
+    $("body").prepend('<div id="scroll-progress"></div>');
+
+    $(window).on("scroll", function () {
+        const scrollTop = $(window).scrollTop();
+        const docHeight = $(document).height() - $(window).height();
+        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        $("#scroll-progress").css("width", scrollPercent + "%");
+    });
+});

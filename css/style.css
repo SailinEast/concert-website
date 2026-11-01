@@ -147,6 +147,20 @@ li {
     border-radius: 3px;
 }
 
+/* scroll progress bar */
+
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: linear-gradient(90deg, #facc15, #ef4444, #facc15);
+    box-shadow: 0 0 10px rgba(250, 204, 21, 0.8);
+    z-index: 99999;
+    transition: width 0.08s ease-out;
+}
+
 /* Descendant selectors */
 
 .logo span {
