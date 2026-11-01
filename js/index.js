@@ -156,3 +156,24 @@ if (skullGif) {
         skullGif.src = gifUrl + "?t=" + Date.now();
     })
 }
+
+$(document).ready(function () {
+    $(".stat-number").each(function () {
+        const $this = $(this);
+        const target = parseInt($this.attr("data-target"), 10);
+
+        $({ countNum: 0 }).animate(
+            { countNum: target },
+            {
+                duration: 2000,
+                easing: "swing",
+                step: function () {
+                    $this.text(Math.floor(this.countNum).toLocaleString());
+                },
+                complete: function () {
+                    $this.text(target.toLocaleString());
+                }
+            }
+        );
+    });
+});
