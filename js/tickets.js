@@ -52,3 +52,16 @@ if (regForm) {
         });
     }
 }
+
+$(document).ready(function () {
+    // toast notification
+    $("body").append('<div id="toast-container"></div>');
+
+    function showToast(message) {
+        const $toast = $(`<div class="crunch-toast">${message}</div>`);
+        $("#toast-container").append($toast);
+        $toast.fadeIn(250).delay(2500).fadeOut(400, function () {
+            $(this).remove();   
+        });
+    }
+});
