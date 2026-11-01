@@ -34,10 +34,6 @@ if (regForm) {
         }
 
         if (isValid) {
-            if (successBox) {
-                successBox.textContent = 'Registration successful! See you in the pit.';
-                successBox.style.display = 'block';
-            }
             regForm.reset();
         }
     })
@@ -64,4 +60,22 @@ $(document).ready(function () {
             $(this).remove();   
         });
     }
+
+    // button spinner
+    $("#contact-form").on("submit", function () {
+        const hasErrors = $(".error-msg").text().trim().length > 0;
+        if (!hasErrors) {
+            const $submitBtn = $("#submit-btn");
+            const originalText = $submitBtn.text();
+
+            $submitBtn.prop("disabled", true);
+            $submitBtn.html('<span class="btn-spinner"></span> Please wait...');
+
+            setTimeout(function () {
+                $submitBtn.prop("disabled", false);
+                $submitBtn.text(originalText);
+                showToast("Pass registration submitted successfully!");
+            }, 1500);
+        }
+    });
 });

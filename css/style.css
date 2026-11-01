@@ -222,6 +222,28 @@ li {
     display: none;
 }
 
+/* button spinner */
+.btn-spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #141417;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
 /* Descendant selectors */
 
 .logo span {
