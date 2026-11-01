@@ -162,7 +162,7 @@ li {
     top: 0;
     left: 0;
     height: 4px;
-    width: 0%;
+    width: 0;
     background: linear-gradient(90deg, #facc15, #ef4444, #facc15);
     box-shadow: 0 0 10px rgba(250, 204, 21, 0.8);
     z-index: 99999;
@@ -201,7 +201,7 @@ li {
     font-weight: 700;
     font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
 
 /* toast notification */
@@ -504,7 +504,7 @@ button:disabled {
     color: #facc15;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.75px;
+    letter-spacing: 1px;
     font-size: 0.95rem;
 }
 
@@ -522,7 +522,7 @@ button:disabled {
     font-size: 1.4rem;
     font-weight: 900;
     color: #ffffff;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     cursor: pointer;
 }
 
