@@ -78,4 +78,24 @@ $(document).ready(function () {
             }, 1500);
         }
     });
+    
+    // copy promo
+    $("#copy-promo-btn").on("click", function () {
+        const $btn = $(this);
+        const promoText = $("#promo-code").text();
+
+        navigator.clipboard.writeText(promoText).then(function () {
+            $("#promo-code").trigger("copy");
+            $btn.text("✔ Copied to clipboard!");
+            showToast("Promo code " + promoText + " copied to clipboard!");
+
+            setTimeout(function () {
+                $btn.text("Copy Code");
+            }, 2000);
+        });
+    });
+
+    $("#promo-code").on("copy", function () {
+        console.log("Promo code copied event triggered!");
+    });
 });

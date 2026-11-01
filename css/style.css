@@ -244,6 +244,41 @@ button:disabled {
     cursor: not-allowed;
 }
 
+/* promo copy */
+.promo-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color: #141417;
+    border: 1px dashed #facc15;
+    border-radius: 6px;
+    padding: 0.85rem 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.promo-box strong {
+    color: #facc15;
+    letter-spacing: 1px;
+}
+
+.copy-btn {
+    background-color: #22222b;
+    color: #facc15;
+    border: 1px solid #facc15;
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+    background-color: #facc15;
+    color: #141417;
+}
+
 /* Descendant selectors */
 
 .logo span {
