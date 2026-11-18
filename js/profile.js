@@ -1,6 +1,6 @@
-const users = JSON.parse(localStorage.getItem("crunchrock-users") || "[]");
-const sessionEmail = localStorage.getItem("crunchrock-session");
-const currentUser = users.find(u => u.email === sessionEmail);
+const savedUsers = JSON.parse(localStorage.getItem("crunchrock-users") || "[]");
+const activeEmail = localStorage.getItem("crunchrock-session");
+const currentUser = savedUsers.find(u => u.email === activeEmail);
 
 if (!currentUser) {
     window.location.href = "login.html";
