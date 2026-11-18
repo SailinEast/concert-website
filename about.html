@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CrunchRock - About Team</title>
+    <script src="js/theme-init.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
 </head>
-
 <body>
 
 <header id="main-header">
@@ -17,13 +16,16 @@
             <div class="logo">⚡ CrunchRock ⚡</div>
         </div>
     </a>
-
     <nav class="nav-menu">
         <a href="index.html">Home</a>
         <a href="schedule.html">Schedule</a>
         <a href="tickets.html">Tickets</a>
         <a href="about.html" class="active">Team</a>
-        <button id="theme-toggle-btn" class="theme-btn">Flashbang</button>
+        <a href="signup.html" class="auth-guest">Sign Up</a>
+        <a href="login.html" class="auth-guest">Log In</a>
+        <a href="profile.html" class="auth-user" hidden>Profile</a>
+        <button type="button" class="theme-btn" id="theme-toggle-btn">Light Mode</button>
+        <button type="button" class="theme-btn auth-user logout-btn" hidden>Log Out</button>
     </nav>
 </header>
 
@@ -39,31 +41,23 @@
 
     <section class="info-block">
         <h2>Team Members</h2>
-
         <div class="team-grid">
             <article class="team-member">
                 <img src="img/ali.png" alt="Portrait of Ali Tulindinov" class="profile-image">
                 <h3>Ali Tulindinov</h3>
-                <p>
-                    Ali worked on the Tickets and About Team pages.
-                    He implemented the interactive registration form and pass cards.
-                </p>
+                <p>Ali worked on the Tickets, About Team, and Authentication pages. He implemented form validation and pass reservation cards.</p>
             </article>
 
             <article class="team-member">
                 <img src="img/anas.png" alt="Portrait of Anas Boranbayev" class="profile-image">
                 <h3>Anas Boranbayev</h3>
-                <p>
-                    Anas worked on the Home and Schedule pages.
-                    He implemented the Grid Area timetable and the 9-image gallery.
-                </p>
+                <p>Anas worked on the Home and Schedule pages. He implemented the Grid Area timetable, 9-image gallery, and iTunes API search.</p>
             </article>
         </div>
     </section>
 
     <section class="info-block">
         <h2>Our Core Skills &amp; Stack</h2>
-
         <div class="skills-grid">
             <div class="skill-card">
                 <h4>HTML5</h4>
@@ -74,12 +68,12 @@
                 <p>Flexbox &amp; Grid</p>
             </div>
             <div class="skill-card">
-                <h4>Git</h4>
-                <p>GitHub Collaboration</p>
+                <h4>JavaScript</h4>
+                <p>DOM, Auth &amp; Fetch API</p>
             </div>
             <div class="skill-card">
-                <h4>a11y</h4>
-                <p>Web Accessibility</p>
+                <h4>Git</h4>
+                <p>GitHub Collaboration</p>
             </div>
         </div>
     </section>
@@ -87,56 +81,56 @@
     <section class="info-block">
         <h2>How We Worked</h2>
         <ol>
-            <li>Divided the 4 pages evenly between team members.</li>
-            <li>Created the semantic HTML structure without frameworks.</li>
-            <li>Styled pages using Flexbox components and CSS Grid layouts.</li>
-            <li>Combined and verified all pages under a shared repository.</li>
+            <li>Divided pages and JavaScript modules evenly between team members.</li>
+            <li>Created semantic HTML structures and responsive Flexbox/Grid layouts.</li>
+            <li>Implemented custom JS validation, localStorage auth, and API integration.</li>
+            <li>Combined and tested all 7 pages under a shared GitHub repository.</li>
         </ol>
     </section>
 
     <section id="contact-section">
-        <button class="cta-button" id="contact-btn">Contact Us</button>
+        <button class="cta-button" id="contact-btn" type="button">Contact Us</button>
     </section>
 
+    <!-- Contact Modal -->
     <div id="contact-modal" class="modal-overlay">
         <div class="modal-box">
             <button id="close-modal-btn" class="close-btn" type="button">&times;</button>
-
             <h3>Get in Touch with x2A</h3>
             <p>Have questions about CrunchRock or want to collaborate? Send us a message.</p>
 
-            <form id="contact-modal-form">
+            <form id="contact-modal-form" novalidate>
                 <div class="form-group">
-                    <input type="text" id="contact-name" placeholder="Your Name" required>
+                    <input type="text" id="contact-name" placeholder="Your Name">
+                    <span class="error-msg" id="contact-name-error"></span>
                 </div>
                 <div class="form-group">
-                    <input type="email" id="contact-email" placeholder="Your Email" required>
+                    <input type="text" id="contact-email" placeholder="Your Email">
+                    <span class="error-msg" id="contact-email-error"></span>
                 </div>
                 <div class="form-group">
-                    <textarea id="contact-msg" rows="3" placeholder="Your Message..." required></textarea>
+                    <input type="text" id="contact-phone" placeholder="Phone Number (+7 700 123 45 67)">
+                    <span class="error-msg" id="contact-phone-error"></span>
+                </div>
+                <div class="form-group">
+                    <textarea id="contact-msg" rows="3" placeholder="Your Message..."></textarea>
+                    <span class="error-msg" id="contact-msg-error"></span>
                 </div>
                 <button type="submit" class="cta-button" id="modal-send-btn">Send Message</button>
-
-                <p id="contact-status"></p>
+                <p id="contact-status" class="form-status"></p>
             </form>
         </div>
     </div>
+
 </main>
 
 <footer id="main-footer">
-    <p>
-        Team Members:
-        <strong>Ali Tulindinov</strong> &amp;
-        <strong>Anas Boranbayev</strong>
-    </p>
-
-    <p>
-        &copy; 2026 <strong>x2A</strong>.
-        This website is open-source software licensed under the GNU GPLv3.
-    </p>
+    <p>Team Members: <strong>Ali Tulindinov</strong> &amp; <strong>Anas Boranbayev</strong></p>
+    <p>&copy; 2026 <strong>x2A</strong>. This website is open-source software licensed under the GNU GPLv3.</p>
 </footer>
 
-<script src="js/about.js"></script>
 <script src="js/script.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/about.js"></script>
 </body>
 </html>

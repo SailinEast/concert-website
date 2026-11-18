@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrunchRock - Log In</title>
+    <script src="js/theme-init.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header id="main-header">
+    <a class="logo-link" href="index.html">
+        <div class="logo-wrapper">
+            <div class="logo">⚡ CrunchRock ⚡</div>
+        </div>
+    </a>
+    <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="tickets.html">Tickets</a>
+        <a href="about.html">Team</a>
+        <a href="signup.html" class="auth-guest">Sign Up</a>
+        <a href="login.html" class="active auth-guest">Log In</a>
+        <a href="profile.html" class="auth-user" hidden>Profile</a>
+        <button type="button" class="theme-btn" id="theme-toggle-btn">Light Mode</button>
+        <button type="button" class="theme-btn auth-user logout-btn" hidden>Log Out</button>
+    </nav>
+</header>
+
+<main class="container auth-container">
+    <section class="auth-card">
+        <h1>Log In</h1>
+        <p>Enter the email and password you used when signing up.</p>
+
+        <form id="login-form" novalidate>
+            <div class="form-group">
+                <label for="login-email">Email Address</label>
+                <input id="login-email" name="email" type="text" placeholder="name@example.com">
+                <span class="error-msg" id="login-email-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <input id="login-password" name="password" type="password" placeholder="Your password">
+                <span class="error-msg" id="login-password-error"></span>
+            </div>
+            <p id="login-status" class="form-status"></p>
+            <button type="submit" class="cta-button auth-submit">Log In</button>
+        </form>
+
+        <p class="auth-switch">New to CrunchRock? <a href="signup.html">Create an account</a></p>
+    </section>
+</main>
+
+<footer id="main-footer">
+    <p>Team Members: <strong>Ali Tulindinov</strong> &amp; <strong>Anas Boranbayev</strong></p>
+    <p>&copy; 2026 <strong>x2A</strong>. This website is open-source software licensed under the GNU GPLv3.</p>
+</footer>
+
+<script src="js/script.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

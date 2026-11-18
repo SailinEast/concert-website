@@ -1,22 +1,46 @@
-const themeBtn = document.getElementById("theme-toggle-btn")
-let isLightMode = false
+const THEME_KEY = "crunchrock-theme";
+let currentTheme = localStorage.getItem(THEME_KEY) === "light" ? "light" : "dark";
+document.documentElement.setAttribute("data-theme", currentTheme);
+
+const themeBtn = document.getElementById("theme-toggle-btn");
+function updateThemeBtn() {
+    if (themeBtn) {
+        themeBtn.textContent = currentTheme === "dark" ? "Light Mode" : "Dark Mode";
+    }
+}
+updateThemeBtn();
 
 if (themeBtn) {
     themeBtn.addEventListener("click", function () {
-        if (!isLightMode) {
-            document.body.style.backgroundColor = "#ffffff"
-            themeBtn.textContent = "Unflashbang"
-        } else {
-            document.body.style.backgroundColor = '#141417';
-            themeBtn.textContent = 'Flashbang';
-        }
-        
-        isLightMode = !isLightMode
-    })
+        currentTheme = currentTheme === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", currentTheme);
+        localStorage.setItem(THEME_KEY, currentTheme);
+        updateThemeBtn();
+    });
 }
 
+// Show/hide navbar links based on login session
+const sessionEmail = localStorage.getItem("crunchrock-session");
+let users;
+try {
+    users = JSON.parse(localStorage.getItem("crunchrock-users") || "[]");
+} catch (e) {
+    users = [];
+}
+const signedInUser = Array.isArray(users) ? users.find(u => u.email === sessionEmail) : null;
+
+document.querySelectorAll(".auth-guest").forEach(el => el.hidden = !!signedInUser);
+document.querySelectorAll(".auth-user").forEach(el => el.hidden = !signedInUser);
+
+document.querySelectorAll(".logout-btn").forEach(btn => {
+    btn.addEventListener("click", function () {
+        localStorage.removeItem("crunchrock-session");
+        window.location.href = "login.html";
+    });
+});
+
 // navigation using arrow keys
-const navItems = document.querySelectorAll(".nav-menu a");
+const navItems = document.querySelectorAll(".nav-menu a:not([hidden])");
 if (navItems.length > 0) {
     let currentIndex = Array.from(navItems).indexOf(document.querySelector(".active"));
     if (currentIndex === -1) currentIndex = 0;
@@ -34,34 +58,37 @@ if (navItems.length > 0) {
     });
 }
 
-$(document).ready(function () {
-    // scroll progress bar
-    $("body").prepend('<div id="scroll-progress"></div>');
+// scroll progress bar
+if (!document.getElementById("scroll-progress")) {
+    const bar = document.createElement("div");
+    bar.id = "scroll-progress";
+    document.body.prepend(bar);
+}
 
-    $(window).on("scroll", function () {
-        const scrollTop = $(window).scrollTop();
-        const docHeight = $(document).height() - $(window).height();
-        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        $("#scroll-progress").css("width", scrollPercent + "%");
-    });
+function updateScrollBar() {
+    const bar = document.getElementById("scroll-progress");
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+    if (bar) bar.style.width = scrollPercent + "%";
+}
 
-    // I'm so lazy
-    function lazyLoadImages() {
-        const windowBottom = $(window).scrollTop() + $(window).height();
-
-        $(".lazy-img").each(function () {
-            const $img = $(this);
-            const imgTop = $img.offset().top;
-
-            if (windowBottom > imgTop - 100) {
-                const realSrc = $img.attr("data-src");
-                if (realSrc && $img.attr("src") !== realSrc) {
-                    $img.attr("src", realSrc).addClass("loaded");
-                }
+// I'm so lazy
+function lazyLoadImages() {
+    document.querySelectorAll(".lazy-img").forEach(img => {
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight + 150) {
+            const realSrc = img.getAttribute("data-src");
+            if (realSrc && img.getAttribute("src") !== realSrc) {
+                img.setAttribute("src", realSrc);
+                img.classList.add("loaded");
             }
-        });
-    }
+        }
+    });
+}
 
-    $(window).on("scroll", lazyLoadImages);
+window.addEventListener("scroll", () => {
+    updateScrollBar();
     lazyLoadImages();
 });
+window.addEventListener("load", lazyLoadImages);
+lazyLoadImages();

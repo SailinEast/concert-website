@@ -1,15 +1,13 @@
 <!-- Copyright (c) 2026 x2A. Licensed under the GNU GPLv3. -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Built by Anas | x2A -->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CrunchRock - Home</title>
+    <script src="js/theme-init.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -24,13 +22,17 @@
         <a href="schedule.html">Schedule</a>
         <a href="tickets.html">Tickets</a>
         <a href="about.html">Team</a>
-        <button id="theme-toggle-btn" class="theme-btn">Flashbang</button>
+        <a href="signup.html" class="auth-guest">Sign Up</a>
+        <a href="login.html" class="auth-guest">Log In</a>
+        <a href="profile.html" class="auth-user" hidden>Profile</a>
+        <button type="button" class="theme-btn" id="theme-toggle-btn">Light Mode</button>
+        <button type="button" class="theme-btn auth-user logout-btn" hidden>Log Out</button>
     </nav>
 </header>
 
 <main class="container">
 
-    <!-- hero with call-to-action button -->
+    <!-- Hero with call-to-action button -->
     <section class="hero-section">
         <img id="skull-gif" src="img/skull.gif" alt="Cool skull (click)">
         <p id="time-greeting"></p>
@@ -40,6 +42,7 @@
         <a href="tickets.html" class="cta-button">Grab Your Passes</a>
     </section>
 
+    <!-- Animated stats bar -->
     <section class="stats-bar">
         <div class="stat-item">
             <span class="stat-number" data-target="24">0</span><span class="stat-suffix">+</span>
@@ -57,33 +60,31 @@
 
     <div id="live-datetime" class="datetime-bar"></div>
 
-    <!-- triple card row requirement -->
+    <!-- Triple card row -->
     <section class="triple-card-section">
-
         <article class="band-card">
             <img src="img/member_1.jpg" alt="First band member" class="card-img">
             <h3>Thunderforge</h3>
             <p>High-voltage power metal riffs with explosive pyrotechnics and thundering double-bass drums.</p>
-            <button class="card-btn">Explore Set</button>
+            <a class="card-btn" href="schedule.html?band=Thunderforge">View set times</a>
         </article>
 
         <article class="band-card">
             <img src="img/member_2.jpg" alt="Second band member" class="card-img">
             <h3>Static Siren</h3>
             <p>Raw, distorted Seattle-style grunge and fast-paced alternative rock straight from the underground.</p>
-            <button class="card-btn">Explore Set</button>
+            <a class="card-btn" href="schedule.html?band=Static Siren">View set times</a>
         </article>
 
         <article class="band-card">
             <img src="img/member_3.jpg" alt="Third band member" class="card-img">
             <h3>Iron Echo</h3>
             <p>Classic hard rock anthems, extended guitar solos, and midnight encore crowd singalongs.</p>
-            <button class="card-btn">Explore Set</button>
+            <a class="card-btn" href="schedule.html?band=Iron Echo">View set times</a>
         </article>
-
     </section>
 
-    <!-- image requirement -->
+    <!-- Lazy-loaded banner image -->
     <section class="media-section">
         <h2>Live Atmosphere</h2>
         <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -92,7 +93,7 @@
              class="banner-img lazy-img">
     </section>
 
-    <!-- unordered list requirement -->
+    <!-- Unordered list -->
     <section class="info-block">
         <h2>Festival Highlights</h2>
         <p>Here is what makes this year's concert tour unforgettable:</p>
@@ -104,9 +105,9 @@
         </ul>
     </section>
 
-    <!-- ordered list requirement -->
+    <!-- Ordered list -->
     <section class="info-block">
-        <h2>Entry Guide & Security Rules</h2>
+        <h2>Entry Guide &amp; Security Rules</h2>
         <p>Please follow these steps upon your arrival at the arena gates:</p>
         <ol class="steps-list">
             <li>Have your digital or printed QR pass ready for scanning.</li>
@@ -116,6 +117,21 @@
         </ol>
     </section>
 
+    <!-- External API Integration (Apple iTunes Search API) -->
+    <section class="info-block music-discovery" id="music-discovery">
+        <h2>Discover Rock Music</h2>
+        <p>Search for rock artists, tracks, and albums to explore music beyond the festival lineup.</p>
+
+        <div class="music-search-row">
+            <label for="music-search-input"></label><input type="text" id="music-search-input" placeholder="Try Metallica, Nirvana, AC/DC..." autocomplete="off">
+            <button type="button" class="cta-button" id="music-search-button">Search Music</button>
+        </div>
+
+        <p id="music-api-status" class="api-status">Search the Apple Music catalogue for rock artists and tracks.</p>
+        <div id="music-results" class="music-results"></div>
+    </section>
+
+    <!-- Interactive 9-image Gallery -->
     <section class="gallery-section">
         <h2>Festival Moments</h2>
         <p>Relive the energy from past CrunchRock gatherings.</p>
@@ -126,74 +142,46 @@
         </div>
 
         <div class="gallery-grid">
-
-            <div class="gallery-item">
+            <div class="gallery-item active-thumb">
                 <img src="img/gallery1.jpg" alt="Mosh pit crowd with yellow lights">
-                <div class="gallery-caption">
-                    <p>Main Arena Mosh Pit</p>
-                </div>
+                <div class="gallery-caption"><p>Main Arena Mosh Pit</p></div>
             </div>
-
             <div class="gallery-item">
                 <img src="img/gallery2.jpg" alt="Guitarist hitting a solo">
-                <div class="gallery-caption">
-                    <p>Midnight Guitar Solo</p>
-                </div>
+                <div class="gallery-caption"><p>Midnight Guitar Solo</p></div>
             </div>
-
             <div class="gallery-item">
                 <img src="img/gallery3.jpg" alt="Drummer in smoke">
-                <div class="gallery-caption">
-                    <p>Double-Bass Thunder</p>
-                </div>
+                <div class="gallery-caption"><p>Double-Bass Thunder</p></div>
             </div>
-
             <div class="gallery-item">
                 <img src="img/gallery4.jpg" alt="Stage flame pyrotechnics">
-                <div class="gallery-caption">
-                    <p>Pyrotechnic Towers</p>
-                </div>
+                <div class="gallery-caption"><p>Pyrotechnic Towers</p></div>
             </div>
-
             <div class="gallery-item">
                 <img src="img/gallery5.jpg" alt="Bass player headbanging">
-                <div class="gallery-caption">
-                    <p>Distortion Tent Energy</p>
-                </div>
+                <div class="gallery-caption"><p>Distortion Tent Energy</p></div>
             </div>
-
             <div class="gallery-item">
                 <img src="img/gallery6.jpg" alt="Crowd surfing fan">
-                <div class="gallery-caption">
-                    <p>Sunset Crowd Surfing</p>
-                </div>
+                <div class="gallery-caption"><p>Sunset Crowd Surfing</p></div>
             </div>
-
             <div class="gallery-item">
                 <img src="img/gallery7.jpg" alt="Amplifier stacks glowing">
-                <div class="gallery-caption">
-                    <p>Marshall Tube Stacks</p>
-                </div>
+                <div class="gallery-caption"><p>Marshall Tube Stacks</p></div>
             </div>
-
             <div class="gallery-item">
                 <img src="img/gallery8.jpg" alt="Encore fireworks">
-                <div class="gallery-caption">
-                    <p>Grand Finale Fireworks</p>
-                </div>
+                <div class="gallery-caption"><p>Grand Finale Fireworks</p></div>
             </div>
-
             <div class="gallery-item">
                 <img src="img/gallery9.jpg" alt="Band taking a bow">
-                <div class="gallery-caption">
-                    <p>Closing Encore Bow</p>
-                </div>
+                <div class="gallery-caption"><p>Closing Encore Bow</p></div>
             </div>
-
         </div>
     </section>
 
-<!-- Accordion -->
+    <!-- FAQ Accordion -->
     <section class="content-card faq-section">
         <h2>Frequently Asked Questions</h2>
 
@@ -227,14 +215,16 @@
             </div>
         </div>
     </section>
+
 </main>
 
 <footer id="main-footer">
-    <p>Team Members: <strong>Anas Boranbayev</strong> & <strong>Ali Tulindinov</strong></p>
+    <p>Team Members: <strong>Anas Boranbayev</strong> &amp; <strong>Ali Tulindinov</strong></p>
     <p>&copy; 2026 <strong>x2A</strong>. This website is open-source software licensed under the GNU GPLv3.</p>
 </footer>
 
 <script src="js/script.js"></script>
 <script src="js/index.js"></script>
+<script src="js/api.js"></script>
 </body>
 </html>

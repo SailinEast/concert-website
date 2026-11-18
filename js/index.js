@@ -1,5 +1,5 @@
 function updateDateTime() {
-    const now = new Date()
+    const now = new Date();
 
     const options = {
         year: 'numeric',
@@ -9,14 +9,14 @@ function updateDateTime() {
         minute: '2-digit',
         second: '2-digit',
         hour12: true
-    }
+    };
 
     const formattedDate = now.toLocaleDateString("en-US", options)
-        .replace(" at ", ", ")
+        .replace(" at ", ", ");
 
-    const clockElement = document.getElementById("live-datetime")
+    const clockElement = document.getElementById("live-datetime");
     if (clockElement) {
-        clockElement.innerHTML = `Arena Live Time: <strong>${formattedDate}</strong>`
+        clockElement.innerHTML = `Arena Live Time: <strong>${formattedDate}</strong>`;
     }
 }
 
@@ -40,7 +40,6 @@ accordionHeaders.forEach(header => {
 });
 
 // thumbnail viewer
-
 const thumbnails = document.querySelectorAll('.gallery-item');
 const mainImg = document.getElementById("main-display-img");
 const mainCaption = document.getElementById("main-display-caption");
@@ -50,21 +49,21 @@ if (mainImg && thumbnails.length > 0) {
         thumbnail.addEventListener("click", function () {
             const thumbImg = this.querySelector("img");
             const thumbCaption = this.querySelector(".gallery-caption p");
-            
+
             thumbnails.forEach(t => t.classList.remove("active-thumb"));
             this.classList.add("active-thumb");
-            
+
             mainImg.style.opacity = "0.3";
             mainImg.style.transform = "scale(0.98)";
-            
+
             setTimeout(() => {
                 mainImg.src = thumbImg.src;
                 mainImg.alt = thumbImg.alt;
-                
+
                 if (thumbCaption && mainCaption) {
                     mainCaption.textContent = thumbCaption.textContent;
                 }
-                
+
                 mainImg.style.opacity = "1";
                 mainImg.style.transform = "scale(1)";
             }, 150);
@@ -113,6 +112,11 @@ displayGreeting();
 // sound effects and K00L skull 😎
 let skullGif = document.getElementById("skull-gif");
 const skullAudio = new Audio("sounds/skull-guitar.mp3");
+skullAudio.addEventListener("error", () => {
+    if (!skullAudio.src.includes("img/riff.mp3")) {
+        skullAudio.src = "img/riff.mp3";
+    }
+});
 
 if (skullGif) {
     const gifUrl = skullGif.getAttribute("src");
@@ -130,7 +134,7 @@ if (skullGif) {
         canvas.getContext("2d").drawImage(tempImg, 0, 0);
         frozenFrameUrl = canvas.toDataURL("image/png");
         skullGif.src = frozenFrameUrl;
-    }
+    };
     tempImg.src = gifUrl;
 
     skullGif.addEventListener("click", () => {
@@ -151,29 +155,28 @@ if (skullGif) {
                 }
                 isPlaying = false;
             }, GIF_DURATION);
-        }
+        };
 
         skullGif.src = gifUrl + "?t=" + Date.now();
-    })
+    });
 }
 
-$(document).ready(function () {
-    $(".stat-number").each(function () {
-        const $this = $(this);
-        const target = parseInt($this.attr("data-target"), 10);
+// animated stats counter
+document.querySelectorAll(".stat-number").forEach(stat => {
+    const target = parseInt(stat.getAttribute("data-target"), 10);
+    const duration = 2000;
+    const startTime = performance.now();
 
-        $({ countNum: 0 }).animate(
-            { countNum: target },
-            {
-                duration: 2000,
-                easing: "swing",
-                step: function () {
-                    $this.text(Math.floor(this.countNum).toLocaleString());
-                },
-                complete: function () {
-                    $this.text(target.toLocaleString());
-                }
-            }
-        );
-    });
+    function updateCount(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        stat.textContent = Math.floor(progress * target).toLocaleString();
+
+        if (progress < 1) {
+            requestAnimationFrame(updateCount);
+        } else {
+            stat.textContent = target.toLocaleString();
+        }
+    }
+
+    requestAnimationFrame(updateCount);
 });

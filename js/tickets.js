@@ -1,50 +1,53 @@
-const regForm = document.getElementById('contact-form');
-if (regForm) {
-    regForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        let isValid = true;
-    
-        document.querySelectorAll('.error-msg').forEach(el => el.textContent = '');
-        const successBox = document.getElementById('form-success');
-        if (successBox) successBox.style.display = 'none';
-    
-        const name = document.getElementById('name').value.trim();
-        if (name === '') {
-            document.getElementById('name-error').textContent = 'Full name is required.';
-            isValid = false;
-        }
-    
-        const email = document.getElementById('email').value.trim();
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            document.getElementById('email-error').textContent = 'Please enter a valid email address.';
-            isValid = false;
-        }
-    
-        const password = document.getElementById('password').value;
-        if (password.length < 8) {
-            document.getElementById('password-error').textContent = 'Password must be at least 8 characters long.';
-            isValid = false;
-        }
-    
-        const confirmPass = document.getElementById('confirm-password').value;
-        if (password !== confirmPass) {
-            document.getElementById('confirm-error').textContent = 'Passwords do not match.';
-            isValid = false;
-        }
+const regForm = document.getElementById("contact-form");
 
-        if (isValid) {
-            regForm.reset();
+// Select pass tier when clicking card button
+document.querySelectorAll("[data-pass-select]").forEach(btn => {
+    btn.addEventListener("click", function () {
+        const ticketSelect = document.getElementById("ticket");
+        if (ticketSelect) {
+            ticketSelect.value = btn.getAttribute("data-pass-select");
+            ticketSelect.scrollIntoView({ behavior: "smooth", block: "center" });
         }
-    })
+    });
+});
+
+if (regForm) {
+    regForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        CrunchValidation.clearErrors();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const password = document.getElementById("password").value;
+        const confirmPass = document.getElementById("confirm-password").value;
+        const ticket = document.getElementById("ticket").value;
+
+        if (!name) {
+            CrunchValidation.showError("name-error", "Full name is required.");
+        }
+        if (!CrunchValidation.isEmail(email)) {
+            CrunchValidation.showError("email-error", "Please enter a valid email address.");
+        }
+        if (!CrunchValidation.isPhone(phone)) {
+            CrunchValidation.showError("phone-error", "Enter a phone number with 10 to 15 digits.");
+        }
+        if (!CrunchValidation.isStrongPassword(password)) {
+            CrunchValidation.showError("password-error", "Use 8+ chars with uppercase, lowercase and a number.");
+        }
+        if (!confirmPass || password !== confirmPass) {
+            CrunchValidation.showError("confirm-error", "Passwords do not match.");
+        }
+        if (!ticket) {
+            CrunchValidation.showError("ticket-error", "Please choose a pass tier.");
+        }
+    });
 
     const resetBtn = document.getElementById("reset-btn");
     if (resetBtn) {
         resetBtn.addEventListener("click", function () {
-            regForm.querySelectorAll('input, textarea').forEach(input => input.value = '');
-            document.getElementById("ticket").value = "";
-            document.getElementById("color").value = "#facc15";
-            document.querySelectorAll('.error-msg').forEach(el => el.textContent = "");
+            regForm.reset();
+            CrunchValidation.clearErrors();
         });
     }
 }
@@ -57,7 +60,7 @@ $(document).ready(function () {
         const $toast = $(`<div class="crunch-toast">${message}</div>`);
         $("#toast-container").append($toast);
         $toast.fadeIn(250).delay(2500).fadeOut(400, function () {
-            $(this).remove();   
+            $(this).remove();
         });
     }
 
@@ -74,18 +77,18 @@ $(document).ready(function () {
             setTimeout(function () {
                 $submitBtn.prop("disabled", false);
                 $submitBtn.text(originalText);
+                $("#contact-form")[0].reset();
                 showToast("Pass registration submitted successfully!");
             }, 1500);
         }
     });
-    
+
     // copy promo
     $("#copy-promo-btn").on("click", function () {
         const $btn = $(this);
         const promoText = $("#promo-code").text();
 
         navigator.clipboard.writeText(promoText).then(function () {
-            $("#promo-code").trigger("copy");
             $btn.text("✔ Copied to clipboard!");
             showToast("Promo code " + promoText + " copied to clipboard!");
 
@@ -93,9 +96,5 @@ $(document).ready(function () {
                 $btn.text("Copy Code");
             }, 2000);
         });
-    });
-
-    $("#promo-code").on("copy", function () {
-        console.log("Promo code copied event triggered!");
     });
 });

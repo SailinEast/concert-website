@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrunchRock - Sign Up</title>
+    <script src="js/theme-init.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header id="main-header">
+    <a class="logo-link" href="index.html">
+        <div class="logo-wrapper">
+            <div class="logo">⚡ CrunchRock ⚡</div>
+        </div>
+    </a>
+    <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="tickets.html">Tickets</a>
+        <a href="about.html">Team</a>
+        <a href="signup.html" class="active auth-guest">Sign Up</a>
+        <a href="login.html" class="auth-guest">Log In</a>
+        <a href="profile.html" class="auth-user" hidden>Profile</a>
+        <button type="button" class="theme-btn" id="theme-toggle-btn">Light Mode</button>
+        <button type="button" class="theme-btn auth-user logout-btn" hidden>Log Out</button>
+    </nav>
+</header>
+
+<main class="container auth-container">
+    <section class="auth-card">
+        <h1>Create Account</h1>
+        <p>Create a CrunchRock fan account to access your festival profile.</p>
+
+        <form id="signup-form" novalidate>
+            <div class="form-group">
+                <label for="signup-name">Full Name</label>
+                <input id="signup-name" name="name" type="text" placeholder="Your full name">
+                <span class="error-msg" id="signup-name-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="signup-email">Email Address</label>
+                <input id="signup-email" name="email" type="text" placeholder="name@example.com">
+                <span class="error-msg" id="signup-email-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="signup-phone">Phone Number</label>
+                <input id="signup-phone" name="phone" type="text" placeholder="+7 700 123 45 67">
+                <span class="error-msg" id="signup-phone-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="signup-password">Password (8+ chars, upper, lower &amp; number)</label>
+                <input id="signup-password" name="password" type="password" placeholder="At least 8 characters">
+                <span class="error-msg" id="signup-password-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="signup-confirm">Confirm Password</label>
+                <input id="signup-confirm" name="confirmPassword" type="password" placeholder="Repeat your password">
+                <span class="error-msg" id="signup-confirm-error"></span>
+            </div>
+            <p id="signup-status" class="form-status"></p>
+            <button type="submit" class="cta-button auth-submit">Create Account</button>
+        </form>
+
+        <p class="auth-switch">Already have an account? <a href="login.html">Log in</a></p>
+    </section>
+</main>
+
+<footer id="main-footer">
+    <p>Team Members: <strong>Ali Tulindinov</strong> &amp; <strong>Anas Boranbayev</strong></p>
+    <p>&copy; 2026 <strong>x2A</strong>. This website is open-source software licensed under the GNU GPLv3.</p>
+</footer>
+
+<script src="js/script.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

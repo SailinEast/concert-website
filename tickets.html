@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CrunchRock - Tickets</title>
+    <script src="js/theme-init.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
 </head>
 
 <body class="grid-layout">
@@ -23,7 +23,11 @@
         <a href="schedule.html">Schedule</a>
         <a href="tickets.html" class="active">Tickets</a>
         <a href="about.html">Team</a>
-        <button id="theme-toggle-btn" class="theme-btn">Flashbang</button>
+        <a href="signup.html" class="auth-guest">Sign Up</a>
+        <a href="login.html" class="auth-guest">Log In</a>
+        <a href="profile.html" class="auth-user" hidden>Profile</a>
+        <button type="button" class="theme-btn" id="theme-toggle-btn">Light Mode</button>
+        <button type="button" class="theme-btn auth-user logout-btn" hidden>Log Out</button>
     </nav>
 </header>
 
@@ -54,28 +58,29 @@
         </p>
     </section>
 
+    <section class="media-section">
+        <img src="img/wristband.jpg" alt="Official CrunchRock 2026 RFID Wristband">
+    </section>
+
     <h2>Available Pass Tiers</h2>
     <section class="triple-card-section">
 
         <article class="band-card">
-            <img src="img/wristband.jpg" alt="Regular Pass Wristband" class="card-img">
             <h3>Regular Pass</h3>
             <p>Full access to the main arena grounds, distortion tent, and food trucks for all 3 days.</p>
-            <button class="card-btn">15,000 KZT</button>
+            <button type="button" class="card-btn" data-pass-select="regular">Select · 15,000 KZT</button>
         </article>
 
         <article class="band-card">
-            <img src="img/wristband.jpg" alt="VIP Pass Wristband" class="card-img">
             <h3>VIP Pit Pass</h3>
             <p>Front-of-stage golden circle viewing, VIP lounge bar access, and fast-track arena entry.</p>
-            <button class="card-btn">35,000 KZT</button>
+            <button type="button" class="card-btn" data-pass-select="vip">Select · 35,000 KZT</button>
         </article>
 
         <article class="band-card">
-            <img src="img/wristband.jpg" alt="Student Pass Wristband" class="card-img">
             <h3>Student Pass</h3>
             <p>Discounted general admission pass for enrolled high school and university students.</p>
-            <button class="card-btn">10,000 KZT</button>
+            <button type="button" class="card-btn" data-pass-select="student">Select · 10,000 KZT</button>
         </article>
 
     </section>
@@ -88,7 +93,7 @@
             <button type="button" id="copy-promo-btn" class="copy-btn">Copy Code</button>
         </div>
 
-        <form id="contact-form">
+        <form id="contact-form" novalidate>
 
             <div class="form-group">
                 <label for="name">Full Name:</label>
@@ -103,7 +108,13 @@
             </div>
 
             <div class="form-group">
-                <label for="password">Create Password (min. 8 characters):</label>
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" placeholder="+7 700 123 45 67" inputmode="tel">
+                <span class="error-msg" id="phone-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Create Password (8+ characters, upper/lowercase and number):</label>
                 <input type="password" id="password" name="password" placeholder="••••••••">
                 <span class="error-msg" id="password-error"></span>
             </div>
@@ -115,10 +126,11 @@
             </div>
 
             <div id="form-success" class="success-msg"></div>
+            <span class="error-msg" id="ticket-error"></span>
 
             <div class="form-group">
                 <label for="ticket">Choose Pass Tier:</label>
-                <select id="ticket" name="ticket" required>
+                <select id="ticket" name="ticket">
                     <option value="">-- Select Your Pass --</option>
                     <option value="regular">Regular Pass (15,000 KZT)</option>
                     <option value="vip">VIP Pass (35,000 KZT)</option>
@@ -158,7 +170,9 @@
     </p>
 </footer>
 
+<script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
 <script src="js/tickets.js"></script>
 <script src="js/script.js"></script>
+<script src="js/validation.js"></script>
 </body>
 </html>

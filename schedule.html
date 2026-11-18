@@ -2,15 +2,13 @@
 <html lang="en">
 <head>
     <!-- Built by Anas | x2A -->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CrunchRock - Schedule</title>
+    <script src="js/theme-init.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
 </head>
 
-<!-- grid system -->
 <body class="grid-layout">
 
 <header id="main-header">
@@ -24,17 +22,22 @@
         <a href="schedule.html" class="active">Schedule</a>
         <a href="tickets.html">Tickets</a>
         <a href="about.html">Team</a>
-        <button id="theme-toggle-btn" class="theme-btn">Flashbang</button>
+        <a href="signup.html" class="auth-guest">Sign Up</a>
+        <a href="login.html" class="auth-guest">Log In</a>
+        <a href="profile.html" class="auth-user" hidden>Profile</a>
+        <button type="button" class="theme-btn" id="theme-toggle-btn">Light Mode</button>
+        <button type="button" class="theme-btn auth-user logout-btn" hidden>Log Out</button>
     </nav>
 </header>
 
 <aside class="sidebar">
     <div class="info-block">
         <h3>Stage Filter</h3>
-        <ul>
-            <li>Crunch Main Stage</li>
-            <li>Distortion Tent</li>
-            <li>The Pit Stage</li>
+        <ul class="stage-filter-list">
+            <li data-stage="" class="active-stage">All Stages</li>
+            <li data-stage="Crunch Main Stage">Crunch Main Stage</li>
+            <li data-stage="Distortion Tent">Distortion Tent</li>
+            <li data-stage="The Pit Stage">The Pit Stage</li>
         </ul>
     </div>
     <div class="info-block">
@@ -44,39 +47,36 @@
 </aside>
 
 <main class="container">
-    <h1>Artist Lineup & Timetable</h1>
+    <h1>Artist Lineup &amp; Timetable</h1>
     <p>Explore the official performance schedule across all three festival arenas.</p>
 
-    <!-- image requirement -->
     <section class="media-section">
-        <!-- Assignment 6 - Task 9: Image Lazy Loading -->
         <img class="lazy-img feature-img"
              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
              data-src="img/stage.jpg"
              alt="Illuminated concert stage setup">
     </section>
 
-    <!-- table requirements (3+ columns, thead, tbody, th, tr, td) -->
     <section class="table-section">
         <h2>Official Concert Schedule</h2>
 
-        <!-- search and autocomplete -->
+        <!-- Search and autocomplete -->
         <div class="search-box-wrapper">
             <input type="text" id="schedule-search" placeholder="🔍 Search bands, stages, or genres (e.g., Iron, Metal, Pit)..." autocomplete="off">
             <ul id="autocomplete-list" class="autocomplete-dropdown"></ul>
         </div>
 
         <div class="table-wrapper">
-        <table id="schedule-table">
-            <thead>
+            <table id="schedule-table">
+                <thead>
                 <tr>
                     <th>Set Time</th>
                     <th>Artist / Band</th>
                     <th>Stage Location</th>
                     <th>Subgenre</th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 <tr>
                     <td>17:00 – 18:00</td>
                     <td>Static Siren</td>
@@ -107,8 +107,8 @@
                     <td>Crunch Main Stage</td>
                     <td>Classic Hard Rock &amp; Pyro</td>
                 </tr>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
         </div>
     </section>
 
@@ -123,7 +123,7 @@
 </main>
 
 <footer id="main-footer">
-    <p>Team Members: <strong>Anas Boranbayev</strong> & <strong>Ali Tulindinov</strong></p>
+    <p>Team Members: <strong>Anas Boranbayev</strong> &amp; <strong>Ali Tulindinov</strong></p>
     <p>&copy; 2026 <strong>x2A</strong>. This website is open-source software licensed under the GNU GPLv3.</p>
 </footer>
 
